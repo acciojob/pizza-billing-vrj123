@@ -8,7 +8,7 @@ public class Pizza {
     private boolean isCheeseAdded;
     private boolean isToppingsAdded;
     private boolean isTakeawayAdded;
-//    private int takeawayPrice;
+    private int takeawayPrice;
 //    private int cheesePrice;
 //    private int toppingsPrice;
 
@@ -30,7 +30,7 @@ public class Pizza {
         isTakeawayAdded=false;
 //        cheesePrice=0;
 //        toppingsPrice=0;
-//        takeawayPrice=0;
+        takeawayPrice=0;
     }
 
     public int getPrice(){
@@ -60,7 +60,8 @@ public class Pizza {
     public void addTakeaway(){
         // your code goes here
         isTakeawayAdded=true;
-//        price+=20;
+        takeawayPrice+=20;
+        price+=20;
     }
 
     public String getBill(){
@@ -88,8 +89,8 @@ public class Pizza {
             }
         }
         if(isTakeawayAdded){
-            price+=20;
-            bill+="Paperbag Added: "+20+"\n";
+//            price+=20;
+            bill+="Paperbag Added: "+takeawayPrice+"\n";
         }
         bill+="Total Price: "+price;
         return this.bill;
