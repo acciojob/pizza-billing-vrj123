@@ -9,8 +9,16 @@ public class Pizza {
     private boolean isToppingsAdded;
     private boolean isTakeawayAdded;
 //    private int takeawayPrice;
-    private int cheesePrice;
-    private int toppingsPrice;
+//    private int cheesePrice;
+//    private int toppingsPrice;
+
+    public void setCheeseAdded(boolean cheeseAdded) {
+        isCheeseAdded = cheeseAdded;
+    }
+
+    public void setToppingsAdded(boolean toppingsAdded) {
+        isToppingsAdded = toppingsAdded;
+    }
 
     public Pizza(Boolean isVeg){
         this.isVeg = isVeg;
@@ -20,8 +28,8 @@ public class Pizza {
         isCheeseAdded=false;
         isToppingsAdded=false;
         isTakeawayAdded=false;
-        cheesePrice=0;
-        toppingsPrice=0;
+//        cheesePrice=0;
+//        toppingsPrice=0;
 //        takeawayPrice=0;
     }
 
@@ -32,27 +40,27 @@ public class Pizza {
     public void addExtraCheese(){
         // your code goes here
         isCheeseAdded=true;
-        cheesePrice+=80;
-        price+=80;
+//        cheesePrice+=80;
+//        price+=80;
     }
 
     public void addExtraToppings(){
         // your code goes here
         isToppingsAdded=true;
-        if(isVeg){
-            toppingsPrice+=70;
-            price+=70;
-        }
-        else {
-            toppingsPrice += 120;
-            toppingsPrice+=120;
-        }
+//        if(isVeg){
+//            toppingsPrice+=70;
+//            price+=70;
+//        }
+//        else {
+//            toppingsPrice += 120;
+//            toppingsPrice+=120;
+//        }
     }
 
     public void addTakeaway(){
         // your code goes here
         isTakeawayAdded=true;
-        price+=20;
+//        price+=20;
     }
 
     public String getBill(){
@@ -66,12 +74,21 @@ public class Pizza {
         }
         bill="Base Price Of The Pizza: "+basePrice+"\n";
         if(isCheeseAdded){
-            bill+="Extra Cheese Added: "+cheesePrice+"\n";
+            price+=80;
+            bill+="Extra Cheese Added: "+80+"\n";
         }
         if(isToppingsAdded){
-            bill+="Extra Toppings Added: "+toppingsPrice+"\n";
+            if(isVeg){
+                price+=70;
+                bill+="Extra Toppings Added: "+70+"\n";
+            }
+            else {
+                price += 120;
+                bill+="Extra Toppings Added: "+120+"\n";
+            }
         }
         if(isTakeawayAdded){
+            price+=20;
             bill+="Paperbag Added: "+20+"\n";
         }
         bill+="Total Price: "+price;
