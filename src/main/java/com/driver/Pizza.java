@@ -8,7 +8,8 @@ public class Pizza {
     private boolean isCheeseAdded;
     private boolean isToppingsAdded;
     private boolean isTakeawayAdded;
-    private int takeawayPrice;
+    private boolean isBillGenerated;
+//    private int takeawayPrice;
 //    private int cheesePrice;
 //    private int toppingsPrice;
 
@@ -29,6 +30,7 @@ public class Pizza {
         isToppingsAdded=false;
         isTakeawayAdded=false;
         this.bill="";
+        isBillGenerated=false;
 //        cheesePrice=0;
 //        toppingsPrice=0;
 //        takeawayPrice=0;
@@ -67,33 +69,36 @@ public class Pizza {
 
     public String getBill(){
         // your code goes here
-        int basePrice=0;
-        if(isVeg){
-            basePrice=300;
-        }
-        else{
-            basePrice=400;
-        }
-        bill="Base Price Of The Pizza: "+basePrice+"\n";
-        if(isCheeseAdded){
-            price+=80;
-            bill+="Extra Cheese Added: "+80+"\n";
-        }
-        if(isToppingsAdded){
-            if(isVeg){
-                price+=70;
-                bill+="Extra Toppings Added: "+70+"\n";
+//        int basePrice=0;
+//        if(isVeg){
+//            basePrice=300;
+//        }
+//        else{
+//            basePrice=400;
+//        }
+        if(!isBillGenerated){
+            bill="Base Price Of The Pizza: "+price+"\n";
+            if(isCheeseAdded){
+                price+=80;
+                bill+="Extra Cheese Added: "+80+"\n";
             }
-            else {
-                price += 120;
-                bill+="Extra Toppings Added: "+120+"\n";
+            if(isToppingsAdded){
+                if(isVeg){
+                    price+=70;
+                    bill+="Extra Toppings Added: "+70+"\n";
+                }
+                else {
+                    price += 120;
+                    bill+="Extra Toppings Added: "+120+"\n";
+                }
             }
+            if(isTakeawayAdded){
+                price+=20;
+                bill+="Paperbag Added: "+20+"\n";
+            }
+            bill+="Total Price: "+price+"\n";
+            isBillGenerated=true;
         }
-        if(isTakeawayAdded){
-            price+=20;
-            bill+="Paperbag Added: "+20+"\n";
-        }
-        bill+="Total Price: "+price+"\n";
         return this.bill;
     }
 }
