@@ -30,7 +30,7 @@ public class Pizza {
         takeawayAdded=false;
         billGenerated=false;
         cheese=80;
-        if (isVeg) toppings=70;
+        if(isVeg) toppings=70;
         else toppings=120;
         bag=20;
         bill="Base Price Of The Pizza: "+price+"\n";
@@ -76,6 +76,7 @@ public class Pizza {
                 bill+="Paperbag Added: "+bag+"\n";
             }
             bill+="Total Price: "+price+"\n";
+            billGenerated=true;
         }
         return this.bill;
     }
